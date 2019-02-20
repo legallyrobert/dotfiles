@@ -1,3 +1,3 @@
 # dotfiles
 
-![](scrot.jpg)
+![](out.jpg)
