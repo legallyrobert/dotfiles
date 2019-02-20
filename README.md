@@ -2,7 +2,7 @@
 
 In this respository my few and sparse configs lie.
 
-The below screenshot shows most of my day-to-day workflow. The programs are:
+The below screenshot showcases most of my daily workflow. The programs are:
 
 * [qutebrowser](https://qutebrowser.org/)
 * [vim](https://www.vim.org/) / [skim](https://skim-app.sourceforge.io/) (although I am always looking for a better pdf viewer – one without a title bar!)
