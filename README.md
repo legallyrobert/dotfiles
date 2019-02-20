@@ -6,7 +6,7 @@ In this respository my few and sparse configs lie.
 The below screenshot shows most of my day-to-day workflow. The programs are:
 
 * [qutebrowser](https://qutebrowser.org/)
-* [vim](https://www.vim.org/) / [skim](https://skim-app.sourceforge.io/)^{although I am always looking for a better pdf viewer. Preferably without a title bar!}
+* [vim](https://www.vim.org/) / [skim](https://skim-app.sourceforge.io/) (although I am always looking for a better pdf viewer – and without a title bar!)
 * [calcurse](https://www.calcurse.org/) / [ranger](https://github.com/ranger/ranger)
 * [mpv](https://mpv.io/)
 * [nudoku](https://github.com/jubalh/nudoku)
