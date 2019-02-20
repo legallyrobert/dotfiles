@@ -10,7 +10,8 @@ The below screenshot showcases most of my daily workflow. The programs are:
 * [mpv](https://mpv.io/)
 * [nudoku](https://github.com/jubalh/nudoku)
 * [neofetch](https://github.com/dylanaraps/neofetch)
+* with my own ZSH prompt, which can be found here.
 
-Along with config files for all the programs I use most often, my custom ZSH prompt as seen below can be found in this repo.
+Font used is GohuFont.
 
 ![](scrot.jpg)
