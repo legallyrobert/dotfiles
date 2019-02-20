@@ -1,6 +1,5 @@
 # Dotfiles
 
-## Introduction
 In this respository my few and sparse configs lie.
 
 The below screenshot shows most of my day-to-day workflow. The programs are:
