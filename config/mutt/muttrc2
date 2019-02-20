@@ -1,0 +1,106 @@
+set imap_user = "robbiwood13@gmail.com"
+set imap_pass = "RobertW14"
+set smtp_url = "smtp://robbiwood13@smtp.gmail.com:587/"
+set smtp_pass = "RobertW14"
+set from = "robbiwood13@gmail.com"
+set realname = "Rob Wood"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set move = no
+set smtp_authenticators = ‘gssapi:login’
+
+# Account Options -----------------------------
+
+# Path Options --------------------------------
+
+# Basic Options -------------------------------
+#set text_flowed = yes
+#set wait_key = no       # "shut up, mutt"
+#set timeout = 3         # idle time before scanning
+#set mail_check = 5      # minimum time between scans
+#set delete              # don't ask before deleting
+#set quit                # dont ask before quitting
+#unset mark_old          # read/new is adequate
+#set move = no           # don't move read messages to another box
+#set copy = no           # gmail already makes a copy of sent mail
+#set smart_wrap          # Nice word wrapping
+#set pager_index_lines=6 # show 6 pager lines above open mail
+#unset imap_passive
+#unset record
+
+# Sorting Options -----------------------------
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+# Header Options ------------------------------
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # order headers
+hdr_order from: to: cc: date: subject:  # in this order
+
+# Key Bindings --------------------------------
+# alias   - alias menu displaying suggested aliases
+# browser - file/directory browser
+# editor  - single line editor for `To:', `Subject:' prompts.
+# index   - the main menu showing messages in a folder
+# pager   - where the contents of the message are displayed
+# query   - menu displaying results of query command
+
+# Unbind some defaults.
+bind index <esc>V noop
+bind index <esc>v noop
+bind index \Cn noop
+bind index \Cp noop
+
+bind alias,index,browser,query G last-entry
+bind pager G bottom
+
+bind alias,index,browser,query gg first-entry
+bind pager gg top
+
+bind index n search-next
+bind index p search-opposite
+
+bind index { previous-thread
+bind pager { half-up
+
+bind index } next-thread
+bind pager } half-down
+
+bind index,pager A create-alias
+bind index,pager a group-reply
+
+# Color Options -------------------------------
+color normal	black brightwhite
+color attachment brightyellow brightwhite
+color hdrdefault black brightwhite
+color indicator black brightcyan
+color markers	brightred brightwhite
+color quoted	green brightwhite
+color signature cyan brightwhite
+color status	white brightwhite
+color tilde	blue brightwhite
+color tree	red brightwhite
+color error     black yellow
+color message   black yellow
+color search    black yellow
+
+color index	black brightred ~D
+color index	magenta brightwhite ~T
+
+color header	brightyellow brightwhite ^From:
+color header	brightyellow brightwhite ^To:
+color header	brightyellow brightwhite ^Cc:
+color header    brightyellow brightwhite ^Date:
+color header	brightyellow brightwhite ^Subject:
+
+color body	brightred brightwhite [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+# identifies email addresses
+
+color body	brightblue brightwhite (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+# identifies URLs
