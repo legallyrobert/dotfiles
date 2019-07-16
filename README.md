@@ -1,1 +1,1 @@
-\# Black and White config
+# Black and White config
