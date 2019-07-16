@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/rw/.tmux'
+let g:netrw_dirhist_2='/Users/rw/.oh-my-zsh'
+let g:netrw_dirhist_3='/Users/rw/UVIC/2/2/Csc225/Assignments/Programming'
+let g:netrw_dirhist_4='/Users/rw/.qutebrowser'
+let g:netrw_dirhist_5='/Users/rw/.config'
