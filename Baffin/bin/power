@@ -1,0 +1,7 @@
+#!/bin/bash
+
+options=("Shutdown\nRestart\ncancel")
+choices=$(echo -e "$options" | dmenu -x 12 -y 12 -w 1667 -p $'\uf011 ' )
+
+[ "$choices" == 'Shutdown' ] && ( sudo shutdown -h now & )
+[ "$choices" == 'Restart' ] && ( sudo shutdown -r now & )

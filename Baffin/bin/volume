@@ -1,0 +1,10 @@
+#!/bin/bash
+
+val=$(echo -e "\ufa80\n" | dmenu -x 12 -y 12 -w 1667 -p $'\uf028 ')
+
+if [[ "$val" == $'\ufa80' ]]; then
+	notify-send "Volume" "$(amixer set Master toggle | tail -n 1 | awk 'NF{ print $NF }')"
+else
+	amixer set Master $val%
+	notify-send "Volume" "$val%"
+fi

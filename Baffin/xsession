@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# wallpaper
+  feh --bg-scale /usr/share/pixmaps/baffin.jpg &
+
+# hide cursor on keypress
+  xbanish &
+
+# status bar modules
+  capacity()
+  {
+	CAPACITY="$( cat /sys/class/power_supply/rk-bat/capacity )"
+	STATUS="$( cat /sys/class/power_supply/rk-bat/status )"
+	#if [[ "$STATUS" == "Discharging" ]]; then
+	#	if [ $CAPACITY -le 5]; then
+	#		echo -e "\x06 -$CAPACITY% "
+	#	elif [ $CAPACITY -le 10 ]; then
+	#		echo -e "\x05 -$CAPACITY% "
+	#	else
+	#		echo -e "\x04 -$CAPACITY% "
+	#	fi
+	#else
+	#	if [ $CAPACITY -le 5]; then
+	#		echo -e "\x06 +$CAPACITY% "
+	#	elif [ $CAPACITY -le 10 ]; then
+	#		echo -e "\x05 +$CAPACITY% "
+	#	else
+	#		echo -e "\x04 +$CAPACITY% "
+	#	fi
+	#fi
+	if [[ "$STATUS" == "Discharging" && $CAPACITY -le 5 ]]; then
+		[ $CAPACITY == 5 ] && ( notify-send "Battery" "$CAPACITY%" )
+		echo -e "\x06 -$CAPACITY% "
+	elif [ $CAPACITY -le 5 ]; then
+		echo -e "\x06 +$CAPACITY% "
+	elif [[ "$STATUS" == "Discharging" && $CAPACITY -le 10 ]]; then
+		[ $CAPACITY == 10 ] && ( notify-send "Battery" "$CAPACITY%" )
+		echo -e "\x05 -$CAPACITY% "
+	elif [ $CAPACITY -le 10 ]; then
+		echo -e "\x05 +$CAPACITY% "
+	elif [[ "$STATUS" == "Discharging" ]]; then
+		echo -e "\x04 -$CAPACITY% "
+	else
+		echo -e "\x04 +$CAPACITY% "
+	fi
+  }
+
+  dte()
+  {
+	DATE="$( date "+%m-%d" )"
+	echo -e "\x07 $DATE "
+  }
+
+  tme()
+  {
+  	TIME="$( date +%R )"
+	echo -e "\x08 $TIME "
+  }
+
+  vol()
+  {
+  	STATUS="$( amixer get Master | tail -n 1 | awk 'NF{ print $NF}')"
+	if [[ "$STATUS" == "[on]" ]]; then
+		echo -e "\x03 \ufa7d "
+	else
+		echo -e "\x03 \ufa80 "
+	fi
+  }
+
+# main
+  while true;
+  do
+	# set status bar
+	xsetroot -name "$(vol)$(dte)$(tme)$(capacity)"
+	sleep 10s
+  done &
+
+# start wm
+  exec dwm

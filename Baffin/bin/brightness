@@ -1,0 +1,7 @@
+#!/bin/bash
+
+val=$(dmenu -x 12 -y 12 -w 1667 -p $'\ue30d ' <&-)
+
+echo $val | sudo tee /sys/class/backlight/edp-backlight/brightness
+
+notify-send "Brightness" "$val / 255"

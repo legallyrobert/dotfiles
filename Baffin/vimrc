@@ -1,0 +1,43 @@
+noh
+set nocompatible
+set noswapfile
+set autoread
+syntax on
+
+set title
+set titlestring=%F
+let &titlestring=$USER . "@" . substitute(hostname(), '\..$', '', '') . ": " . expand("%:~")
+
+set hidden
+set wildmenu
+set showmode
+set hlsearch
+
+set ignorecase
+set smartcase
+set autoindent
+set ruler
+set showmatch
+set cmdheight=1
+set laststatus=2
+set confirm
+set scrolloff=10
+
+set number relativenumber
+augroup numbertoggle
+	autocmd!
+	autocmd bufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
+set cursorline
+
+colorscheme paramount
+hi Normal guibg=NONE ctermbg=NONE
+hi user1 ctermbg=15 ctermfg=0
+hi group1 ctermbg=NONE ctermfg=0
+
+hi statusline ctermbg=NONE ctermfg=NONE
+
+set statusline+=%=\ 
+set statusline+=%1*\ %l\.%c\ of\ %L\ 

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+courses=("310\n320\n360")
+choices=$(echo -e "$courses" | dmenu -x 12 -y 12 -w 1667 -p " Course: " )
+
+[[ $choices == 310 ]] && ( st bash -c 'cd ~/SENG310; tmux new -s SENG\ 310' )
+[[ $choices == 320 ]] && ( st bash -c 'cd ~/CSC320; tmux new -s CSC\ 320' )
+[[ $choices == 360 ]] && ( st bash -c 'cd ~/CSC360; tmux new -s CSC\ 360' )
