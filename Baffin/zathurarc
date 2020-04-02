@@ -1,0 +1,4 @@
+set guioptions none
+set recolor true
+set recolor-lightcolor "#f9f7fc"
+set recolor-darkcolor "#2d2b30"
